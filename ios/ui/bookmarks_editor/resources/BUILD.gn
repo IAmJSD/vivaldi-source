@@ -1,0 +1,38 @@
+# Copyright 2022 Vivaldi Technologies. All rights reserved.
+
+import("//build/config/ios/rules.gni")
+
+bundle_data_xcassets("assets") {
+  catalog = "Assets.xcassets"
+  sources = [
+    # vivaldi_bookmarks_folder
+    "Assets.xcassets/vivaldi_bookmarks_folder.imageset/Contents.json",
+    "Assets.xcassets/vivaldi_bookmarks_folder.imageset/vivaldi_bookmarks_folder.pdf",
+
+    # vivaldi_speed_dial_folder
+    "Assets.xcassets/vivaldi_speed_dial_folder.imageset/Contents.json",
+    "Assets.xcassets/vivaldi_speed_dial_folder.imageset/vivaldi_speed_dial_folder.pdf",
+
+    # vivaldi_bookmark_folder_selection_chevron
+    "Assets.xcassets/vivaldi_bookmark_folder_selection_chevron.imageset/Contents.json",
+    "Assets.xcassets/vivaldi_bookmark_folder_selection_chevron.imageset/vivaldi_bookmark_folder_selection_chevron.pdf",
+
+    # vivaldi_bookmark_folder_selection_checkmark
+    "Assets.xcassets/vivaldi_bookmark_folder_selection_checkmark.imageset/Contents.json",
+    "Assets.xcassets/vivaldi_bookmark_folder_selection_checkmark.imageset/vivaldi_bookmark_folder_selection_checkmark.pdf",
+
+    # vivaldi_bookmark_add_new_folder
+    "Assets.xcassets/vivaldi_bookmark_add_new_folder.imageset/Contents.json",
+    "Assets.xcassets/vivaldi_bookmark_add_new_folder.imageset/vivaldi_bookmark_add_new_folder.pdf",
+
+    # vivaldi_bookmark_add_group_illustration
+    "Assets.xcassets/vivaldi_bookmark_add_group_illustration.imageset/Contents.json",
+    "Assets.xcassets/vivaldi_bookmark_add_group_illustration.imageset/vivaldi_bookmark_add_group_illustration.pdf",
+    "Assets.xcassets/vivaldi_bookmark_add_group_illustration.imageset/vivaldi_bookmark_add_group_illustration_dark.pdf",
+
+    # vivaldi_trash_folder
+    "Assets.xcassets/vivaldi_trash_folder.imageset/Contents.json",
+    "Assets.xcassets/vivaldi_trash_folder.imageset/vivaldi_trash_folder.pdf",
+    "Assets.xcassets/vivaldi_trash_folder.imageset/vivaldi_trash_folder_dark.pdf",
+  ]
+}

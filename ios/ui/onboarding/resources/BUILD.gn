@@ -1,0 +1,32 @@
+# Copyright (c) 2023 Vivaldi Technologies AS. All rights reserved
+
+import("//build/config/ios/rules.gni")
+
+bundle_data_xcassets("assets") {
+  catalog = "Assets.xcassets"
+  sources = [
+    # onboarding_start
+    "Assets.xcassets/onboarding_start.imageset/Contents.json",
+    "Assets.xcassets/onboarding_start.imageset/onboarding_start.pdf",
+
+    # onboarding_default_browser
+    "Assets.xcassets/onboarding_default_browser.imageset/Contents.json",
+    "Assets.xcassets/onboarding_default_browser.imageset/onboarding_default_browser.png",
+    "Assets.xcassets/onboarding_default_browser.imageset/onboarding_default_browser@2x.png",
+    "Assets.xcassets/onboarding_default_browser.imageset/onboarding_default_browser@3x.png",
+
+    # onboarding_tabs
+    "Assets.xcassets/onboarding_tabs.imageset/Contents.json",
+    "Assets.xcassets/onboarding_tabs.imageset/onboarding_tabs.pdf",
+
+    # onboarding_tabs_on
+    "Assets.xcassets/onboarding_tabs_on.imageset/Contents.json",
+    "Assets.xcassets/onboarding_tabs_on.imageset/onboarding_tabs_on.pdf",
+    "Assets.xcassets/onboarding_tabs_on.imageset/onboarding_tabs_on_dark.pdf",
+
+    # onboarding_tabs_off
+    "Assets.xcassets/onboarding_tabs_off.imageset/Contents.json",
+    "Assets.xcassets/onboarding_tabs_off.imageset/onboarding_tabs_off.pdf",
+    "Assets.xcassets/onboarding_tabs_off.imageset/onboarding_tabs_off_dark.pdf",
+  ]
+}

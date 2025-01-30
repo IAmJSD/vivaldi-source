@@ -1,0 +1,32 @@
+# Copyright 2022 Vivaldi Technologies. All rights reserved.
+
+import("//build/config/ios/rules.gni")
+
+bundle_data_xcassets("assets") {
+  catalog = "Assets.xcassets"
+  sources = [
+    # vivaldi_atb_shield
+    "Assets.xcassets/vivaldi_atb_shield.imageset/Contents.json",
+    "Assets.xcassets/vivaldi_atb_shield.imageset/vivaldi_atb_shield.pdf",
+    "Assets.xcassets/vivaldi_atb_shield.imageset/vivaldi_atb_shield_dark.pdf",
+
+    # vivaldi_atb_shield_notrack
+    "Assets.xcassets/vivaldi_atb_shield_notrack.imageset/Contents.json",
+    "Assets.xcassets/vivaldi_atb_shield_notrack.imageset/vivaldi_atb_shield_notrack.pdf",
+    "Assets.xcassets/vivaldi_atb_shield_notrack.imageset/vivaldi_atb_shield_notrack_dark.pdf",
+
+    # vivaldi_atb_shield_trackers
+    "Assets.xcassets/vivaldi_atb_shield_trackers.imageset/Contents.json",
+    "Assets.xcassets/vivaldi_atb_shield_trackers.imageset/vivaldi_atb_shield_trackers.pdf",
+    "Assets.xcassets/vivaldi_atb_shield_trackers.imageset/vivaldi_atb_shield_trackers_dark.pdf",
+
+    # vivaldi_atb_shield_trackers_and_ads
+    "Assets.xcassets/vivaldi_atb_shield_trackers_and_ads.imageset/Contents.json",
+    "Assets.xcassets/vivaldi_atb_shield_trackers_and_ads.imageset/vivaldi_atb_shield_trackers_and_ads.pdf",
+    "Assets.xcassets/vivaldi_atb_shield_trackers_and_ads.imageset/vivaldi_atb_shield_trackers_and_ads_dark.pdf",
+
+    # vivaldi_atb_settings_selection_check
+    "Assets.xcassets/vivaldi_atb_settings_selection_check.imageset/Contents.json",
+    "Assets.xcassets/vivaldi_atb_settings_selection_check.imageset/vivaldi_atb_settings_selection_check.pdf",
+  ]
+}

@@ -1,0 +1,26 @@
+# Copyright 2023 Vivaldi Technologies. All rights reserved.
+
+import("//build/config/ios/rules.gni")
+
+bundle_data_xcassets("location_bar_assets") {
+  catalog = "LocationBarAssets.xcassets"
+  sources = [
+    # location_bar_page_info
+    "LocationBarAssets.xcassets/location_bar_page_info.imageset/Contents.json",
+    "LocationBarAssets.xcassets/location_bar_page_info.imageset/vivaldi_location_bar_page_info.pdf",
+
+    # location_bar_reload
+    "LocationBarAssets.xcassets/location_bar_reload.imageset/Contents.json",
+    "LocationBarAssets.xcassets/location_bar_reload.imageset/vivaldi_location_bar_reload.pdf",
+
+    # location_bar_stop
+    "LocationBarAssets.xcassets/location_bar_stop.imageset/Contents.json",
+    "LocationBarAssets.xcassets/location_bar_stop.imageset/vivaldi_location_bar_stop.pdf",
+
+    # location_bar_light_bg_color
+    "LocationBarAssets.xcassets/location_bar_light_bg_color.colorset/Contents.json",
+
+    # location_bar_dark_bg_color
+    "LocationBarAssets.xcassets/location_bar_dark_bg_color.colorset/Contents.json",
+  ]
+}

@@ -1,0 +1,376 @@
+[
+  {
+    "namespace": "searchEngines",
+    "description": "API for accessing Chromium's TemplateURLService.",
+    "compiler_options": {
+      "implemented_in": "extensions/api/search_engines/search_engines_api.h"
+    },
+    "types": [
+      {
+        "id": "DefaultType",
+        "type": "string",
+        "enum": [
+          "defaultSearch",
+          "defaultPrivate",
+          "defaultSearchField",
+          "defaultSearchFieldPrivate",
+          "defaultSpeeddials",
+          "defaultSpeeddialsPrivate",
+          "defaultImage"
+        ]
+      },
+      {
+        "id": "TemplateURL",
+        "type": "object",
+        "description": "Represents a specific search engine. Urls and post params should only be used when editing the properties of a TemplateURL",
+        "properties": {
+          "guid": {
+            "type": "string"
+          },
+          "readOnly": {
+            "description": "Search engines are marked as read only if they are provided by extensions, or early on if they come from the set available before the service is fully loaded",
+            "type": "boolean"
+          },
+          "extensionId": {
+            "description": "For regular search engines, this string is empty. Otherwise it contains the id of the extension that provided the search.",
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "keyword": {
+            "type": "string"
+          },
+          "faviconUrl": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "postParams": {
+            "type": "string"
+          },
+          "suggestUrl": {
+            "type": "string"
+          },
+          "suggestPostParams": {
+            "type": "string"
+          },
+          "imageUrl": {
+            "type": "string"
+          },
+          "imagePostParams": {
+            "type": "string"
+          },
+          "prepopulateId" : {
+            "type": "integer"
+          }
+        }
+      },
+      {
+        "id": "AllTemplateURLs",
+        "type": "object",
+        "properties": {
+          "templateUrls": {
+            "type": "array",
+            "items": {
+              "$ref": "TemplateURL"
+            }
+          },
+          "defaultSearch": {
+            "type": "string"
+          },
+          "defaultPrivate": {
+            "type": "string"
+          },
+          "defaultSearchField": {
+            "type": "string"
+          },
+          "defaultSearchFieldPrivate": {
+            "type": "string"
+          },
+          "defaultSpeeddials": {
+            "type": "string"
+          },
+          "defaultSpeeddialsPrivate": {
+            "type": "string"
+          },
+          "defaultImage": {
+            "type": "string"
+          },
+          "systemDefaultSearchChanged": {
+            "type": "boolean"
+          }
+        }
+      },
+      {
+        "id": "SearchRequest",
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          },
+          "contentType": {
+            "type": "string"
+          },
+          "postParams": {
+            "type": "string"
+          }
+        }
+      },
+      {
+        "id": "SwitchPromptData",
+        "type": "object",
+        "properties": {
+          "shouldPrompt": {
+            "description": "True if the user should be prompted to switch search engines.",
+            "type": "boolean"
+          },
+          "currentSearchEngine": {
+            "$ref": "TemplateURL"
+          },
+          "partnerSearchEngine": {
+            "$ref": "TemplateURL"
+          }
+        }
+      }
+    ],
+    "functions": [
+      {
+        "name": "getKeywordForUrl",
+        "type": "function",
+        "description": "Obtains the default keyword for a given search URL",
+        "parameters": [
+          {
+            "name": "url",
+            "type": "string"
+          }
+        ],
+        "returns_async": {
+          "name": "callback",
+          "parameters": [
+            {
+              "name": "keyword",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      {
+        "name": "getTemplateUrls",
+        "type": "function",
+        "description": "Retrieves data about all template URLS.",
+        "parameters": [],
+        "returns_async": {
+          "name": "callback",
+          "parameters": [
+            {
+              "name": "result",
+              "$ref": "AllTemplateURLs"
+            }
+          ]
+        }
+      },
+      {
+        "name": "addTemplateUrl",
+        "type": "function",
+        "description": "Adds a template url.",
+        "parameters": [
+          {
+            "name": "templateUrl",
+            "$ref": "TemplateURL"
+          }
+        ],
+        "returns_async": {
+          "name": "callback",
+          "parameters": [
+            {
+              "name": "guid",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      {
+        "name": "removeTemplateUrl",
+        "type": "function",
+        "description": "Removes a template url.",
+        "parameters": [
+          {
+            "name": "guid",
+            "type": "string"
+          }
+        ],
+        "returns_async": {
+          "name": "callback",
+          "parameters": [
+            {
+              "name": "result",
+              "type": "boolean"
+            }
+          ]
+        }
+      },
+      {
+        "name": "updateTemplateUrl",
+        "type": "function",
+        "description": "Changes a template url.",
+        "parameters": [
+          {
+            "name": "templateUrl",
+            "$ref": "TemplateURL"
+          }
+        ],
+        "returns_async": {
+          "name": "callback",
+          "parameters": [
+            {
+              "name": "result",
+              "type": "boolean"
+            }
+          ]
+        }
+      },
+      {
+        "name": "moveTemplateUrl",
+        "type": "function",
+        "description": "reorders by moving a search engine before another one",
+        "parameters": [
+          {
+            "name": "guid",
+            "description": "The search engine to move",
+            "type": "string"
+          },
+          {
+            "name": "successor_guid",
+            "optional": true,
+            "description": "The search engine will be moved before the one with this guid or to the end if omitted. Must be different from guid.",
+            "type": "string"
+          }
+        ],
+        "returns_async": {
+          "name": "callback",
+          "parameters": [
+            {
+              "name": "result",
+              "type": "boolean"
+            }
+          ]
+        }
+      },
+      {
+        "name": "setDefault",
+        "type": "function",
+        "description": "Sets a default template url.",
+        "parameters": [
+          {
+            "name": "defaultType",
+            "$ref": "DefaultType"
+          },
+          {
+            "name": "guid",
+            "type": "string"
+          }
+        ],
+        "returns_async": {
+          "name": "callback",
+          "parameters": [
+            {
+              "name": "result",
+              "type": "boolean"
+            }
+          ]
+        }
+      },
+      {
+        "name": "getSearchRequest",
+        "type": "function",
+        "description": "Provides the request info to use for performing a search",
+        "parameters": [
+          {
+            "name": "guid",
+            "type": "string"
+          },
+          {
+            "name": "searchTerms",
+            "type": "string"
+          }
+        ],
+        "returns_async": {
+          "name": "callback",
+          "parameters": [
+            {
+              "name": "request",
+              "$ref": "SearchRequest"
+            }
+          ]
+        }
+      },
+      {
+        "name": "getSuggestRequest",
+        "type": "function",
+        "description": "Provides the request info to use for requesting suggestions",
+        "parameters": [
+          {
+            "name": "guid",
+            "type": "string"
+          },
+          {
+            "name": "searchTerms",
+            "type": "string"
+          }
+        ],
+        "returns_async": {
+          "name": "callback",
+          "parameters": [
+            {
+              "name": "request",
+              "$ref": "SearchRequest"
+            }
+          ]
+        }
+      },
+      {
+        "name": "repairPrepopulatedTemplateUrls",
+        "type": "function",
+        "description": "resets the prepopulated template urls and the default search",
+        "parameters": [
+          {
+            "name": "onlyKeepPrepopulated",
+            "type": "boolean"
+          }
+        ]
+      },
+      {
+        "name": "getSwitchPromptData",
+        "type": "function",
+        "description": "Gathers and returns the needed info for partner search engine switch dialog.",
+        "parameters": [],
+        "returns_async": {
+          "name": "callback",
+          "parameters": [
+            {
+              "name": "result",
+              "$ref": "SwitchPromptData",
+              "description": "Bundle of info about current/partner search engine status."
+            }
+          ]
+        }
+      },
+      {
+        "name": "markSwitchPromptAsSeen",
+        "type": "function",
+        "description": "Mark the current switch search engine prompt as seen.",
+        "parameters": []
+      }
+    ],
+    "events": [
+      {
+        "name": "onTemplateUrlsChanged",
+        "type": "function",
+        "description": "Informs that template URLs have changed",
+        "parameters": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,22 @@
+# Copyright (c) 2022 Vivaldi Technologies AS. All rights reserved
+
+source_set("vivaldi_account") {
+  configs += [
+    "//third_party/abseil-cpp:absl_include_config",
+  ]
+
+  sources = [
+    "vivaldi_account_manager_factory.mm",
+    "vivaldi_account_manager_factory.h",
+  ]
+
+  deps = [
+    "//components/keyed_service/core",
+    "//components/keyed_service/ios",
+    "//ios/chrome/browser/passwords/model:store_factory",
+    "//ios/chrome/browser/shared/model/browser_state",
+    "//third_party/boringssl",
+    "//vivaldi/prefs",
+    "//vivaldi/vivaldi_account",
+  ]
+}

@@ -1,0 +1,39 @@
+# Copyright 2022 Vivaldi Technologies. All rights reserved.
+
+import("//build/config/apple/swift_source_set.gni")
+
+source_set("custom_views") {
+  sources = [
+    "custom_view_constants.h",
+    "custom_view_constants.mm",
+    "vivaldi_text_field_view.h",
+    "vivaldi_text_field_view.mm",
+    "vivaldi_search_bar_view.h",
+    "vivaldi_search_bar_view.mm",
+    "vivaldi_text_view.h",
+    "vivaldi_text_view.mm"
+  ]
+
+  deps = []
+
+  frameworks = [
+    "Foundation.framework",
+    "UIKit.framework",
+  ]
+}
+
+swift_source_set("custom_views_swift") {
+  sources = [
+    "vivaldi_empty_message_view.swift",
+    "vivaldi_radio_button.swift"
+  ]
+
+  deps = [
+    "//ios/chrome/common/ui/colors:swift",
+  ]
+
+  frameworks = [
+    "UIKit.framework",
+    "SwiftUI.framework",
+  ]
+}

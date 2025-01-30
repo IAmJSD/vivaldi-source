@@ -1,0 +1,12 @@
+import("//vivaldi/testing/testing.gni")
+
+if (vivaldi_build_tests) {
+  update_target("//base/test:test_support") {
+    sources += [
+      "//vivaldi/base/test/vivaldi_testinit.cc",
+      "//vivaldi/base/test/vivaldi_testinit.h",
+      "//vivaldi/base/vivaldi_paths.cc",
+      "//vivaldi/base/vivaldi_paths.h",
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+# Copyright (c) 2023 Vivaldi Technologies AS. All rights reserved
+
+import("//build/config/ios/rules.gni")
+
+bundle_data_xcassets("assets") {
+  catalog = "Assets.xcassets"
+  sources = [
+    # browser_window_auto
+    "Assets.xcassets/browser_window_auto.imageset/Contents.json",
+    "Assets.xcassets/browser_window_auto.imageset/browser_window_auto.pdf",
+
+    # browser_window_light
+    "Assets.xcassets/browser_window_light.imageset/Contents.json",
+    "Assets.xcassets/browser_window_light.imageset/browser_window_light.pdf",
+
+    # browser_window_dark
+    "Assets.xcassets/browser_window_dark.imageset/Contents.json",
+    "Assets.xcassets/browser_window_dark.imageset/browser_window_dark.pdf",
+  ]
+}

@@ -1,0 +1,18 @@
+
+# Copyright 2023 Vivaldi Technologies. All rights reserved.
+
+source_set("vivaldi_overflow_menu") {
+  sources = [
+    "vivaldi_oveflow_menu_constants.h",
+    "vivaldi_oveflow_menu_constants.mm",
+    "vivaldi_overflow_menu_util.h",
+    "vivaldi_overflow_menu_util.mm",
+  ]
+
+  deps = [
+    "//base",
+    "resources:assets",
+  ]
+
+ frameworks = [ "UIKit.framework" ]
+}

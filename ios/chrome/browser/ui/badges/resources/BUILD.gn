@@ -1,0 +1,15 @@
+# Copyright 2022 Vivaldi Technologies. All rights reserved.
+
+import("//build/config/ios/rules.gni")
+
+bundle_data_xcassets("incognito_badge_assets") {
+  catalog = "IncognitoBadges.xcassets"
+  sources = [
+    "IncognitoBadges.xcassets/incognito_badge.imageset/Contents.json",
+    "IncognitoBadges.xcassets/incognito_badge.imageset/incognito_badge.pdf",
+    "IncognitoBadges.xcassets/incognito_badge.imageset/incognito_badge_dark.pdf",
+    "IncognitoBadges.xcassets/incognito_small_badge.imageset/Contents.json",
+    "IncognitoBadges.xcassets/incognito_small_badge.imageset/incognito_badge.pdf",
+    "IncognitoBadges.xcassets/incognito_small_badge.imageset/incognito_badge_dark.pdf",
+  ]
+}

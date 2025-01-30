@@ -1,0 +1,102 @@
+import("features.gni")
+import("product.gni")
+import("//build/toolchain/cc_wrapper.gni")
+import("//build/toolchain/rbe.gni")
+import("//build/config/sanitizers/sanitizers.gni")
+
+if (is_ios) {
+  import("//build/config/ios/ios_sdk.gni")
+}
+
+declare_args() {
+  # Enables absolute paths for Windows Visual Studio diganostics
+  # May have consequences for compile caching, so disabled by default
+  windows_use_absolute_path_diagnostics = false
+}
+
+config("diagnostics") {
+  if (is_win && windows_use_absolute_path_diagnostics) {
+    cflags = ["-fdiagnostics-absolute-paths"]
+  }
+}
+
+config("features") {
+  defines = [
+    "VIVALDI_BUILD",
+    "CHROMIUM_BUILD",
+    "WIDEVINE_CDM_VERSION_STRING=\"1.0.123.456\"",
+  ]
+  if (system_proprietary_codecs) {
+    defines += [ "USE_SYSTEM_PROPRIETARY_CODECS" ]
+  }
+  if (is_mac && vivaldi_disable_sparkle) {
+    defines += [ "VIVALDI_SPARKLE_DISABLED" ]
+  }
+  include_dirs = [ "//vivaldi/", "//vivaldi/platform_media/" ]
+  if (is_official_build) {
+    defines += [ "VIVALDI_PRODUCT_VERSION=\"$official_product_kind_string\"" ]
+  }
+  if (is_win) {
+    if (cc_wrapper != "" || use_remoteexec) {
+      defines += [ "VIVALDI_WIN_COMPILE_CACHE" ]
+    }
+    if (target_cpu != "arm64") {
+      ldflags = [ "notelemetry.obj" ]
+    }
+  }
+  if (is_vivaldi_automotive) {
+    defines += [ "OEM_AUTOMOTIVE_BUILD" ]
+  }
+  if (is_vivaldi_preloaded) {
+    defines += [ "OEM_PRELOADED_BUILD" ]
+  }
+  if (is_vivaldi_polestar) {
+    defines += [ "OEM_POLESTAR_BUILD" ]
+  }
+  if (is_vivaldi_renault) {
+    defines += [ "OEM_RENAULT_BUILD" ]
+  }
+  if (is_vivaldi_lynkco) {
+    defines += [ "OEM_LYNKCO_BUILD" ]
+  }
+  if (is_vivaldi_mercedes) {
+    defines += [ "OEM_MERCEDES_BUILD" ]
+  }
+  if (is_vivaldi_volvo) {
+    defines += [ "OEM_VOLVO_BUILD" ]
+  }
+  if (is_vivaldi_gas) {
+    defines += [ "OEM_GAS_BUILD" ]
+  }
+  if (is_vivaldi_mahindra) {
+    defines += [ "OEM_MAHINDRA_BUILD" ]
+  }
+}
+
+config("extra_cfi_flags") {
+  cflags = []
+  if (is_cfi && current_toolchain == default_toolchain) {
+    extra_cfi_blacklist_path =
+          rebase_path("//vivaldi/gn/config/cfi/blacklist.txt", root_build_dir)
+    cflags += [
+      "-fsanitize-blacklist=$extra_cfi_blacklist_path",
+    ]
+  }
+}
+
+config("release_kind") {
+  defines = [
+    "VIVALDI_RELEASE=$release_kind",
+    "VIVALDI_RELEASE_KIND=$VIVALDI_RELEASE_KIND",
+  ]
+
+  if (is_final_build) {
+    defines += [ "VIVALDI_FINAL_BUILD" ]
+  }
+}
+
+if (is_ios) {
+  config("vivaldi_build") {
+    swiftflags = [ "-DVIVALDI_BUILD" ]
+  }
+}

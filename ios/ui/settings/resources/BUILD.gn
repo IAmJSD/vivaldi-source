@@ -1,0 +1,98 @@
+# Copyright (c) 2022 Vivaldi Technologies AS. All rights reserved
+
+import("//build/config/ios/rules.gni")
+
+# Main Setting Assets
+bundle_data_xcassets("main_setting_assets") {
+  catalog = "MainSettingAssets.xcassets"
+  sources = [
+    # vivaldi_setting_sync
+    "MainSettingAssets.xcassets/vivaldi_setting_sync.imageset/Contents.json",
+    "MainSettingAssets.xcassets/vivaldi_setting_sync.imageset/vivaldi_setting_sync.pdf",
+
+    # vivaldi_setting_general
+    "MainSettingAssets.xcassets/vivaldi_setting_general.imageset/Contents.json",
+    "MainSettingAssets.xcassets/vivaldi_setting_general.imageset/vivaldi_setting_general.pdf",
+
+    # vivaldi_setting_default_browser
+    "MainSettingAssets.xcassets/vivaldi_setting_default_browser.imageset/Contents.json",
+    "MainSettingAssets.xcassets/vivaldi_setting_default_browser.imageset/vivaldi_setting_default_browser.pdf",
+
+    # vivaldi_setting_search_engine
+    "MainSettingAssets.xcassets/vivaldi_setting_search_engine.imageset/Contents.json",
+    "MainSettingAssets.xcassets/vivaldi_setting_search_engine.imageset/vivaldi_setting_search_engine.pdf",
+
+    # vivaldi_setting_passwords
+    "MainSettingAssets.xcassets/vivaldi_setting_passwords.imageset/Contents.json",
+    "MainSettingAssets.xcassets/vivaldi_setting_passwords.imageset/vivaldi_setting_passwords.pdf",
+
+    # vivaldi_setting_addressbar
+    "MainSettingAssets.xcassets/vivaldi_setting_addressbar.imageset/Contents.json",
+    "MainSettingAssets.xcassets/vivaldi_setting_addressbar.imageset/vivaldi_setting_addressbar.pdf",
+
+    # vivaldi_setting_payment_methods
+    "MainSettingAssets.xcassets/vivaldi_setting_payment_methods.imageset/Contents.json",
+    "MainSettingAssets.xcassets/vivaldi_setting_payment_methods.imageset/vivaldi_setting_payment_methods.pdf",
+
+    # vivaldi_setting_addresses
+    "MainSettingAssets.xcassets/vivaldi_setting_addresses.imageset/Contents.json",
+    "MainSettingAssets.xcassets/vivaldi_setting_addresses.imageset/vivaldi_setting_addresses.pdf",
+
+    # vivaldi_setting_appearance
+    "MainSettingAssets.xcassets/vivaldi_setting_appearance.imageset/Contents.json",
+    "MainSettingAssets.xcassets/vivaldi_setting_appearance.imageset/vivaldi_setting_appearance.pdf",
+
+    # vivaldi_setting_tabs
+    "MainSettingAssets.xcassets/vivaldi_setting_tabs.imageset/Contents.json",
+    "MainSettingAssets.xcassets/vivaldi_setting_tabs.imageset/vivaldi_setting_tabs.pdf",
+
+    # vivaldi_setting_start_page
+    "MainSettingAssets.xcassets/vivaldi_setting_start_page.imageset/Contents.json",
+    "MainSettingAssets.xcassets/vivaldi_setting_start_page.imageset/vivaldi_setting_start_page.pdf",
+
+    # vivaldi_setting_privacy
+    "MainSettingAssets.xcassets/vivaldi_setting_privacy.imageset/Contents.json",
+    "MainSettingAssets.xcassets/vivaldi_setting_privacy.imageset/vivaldi_setting_privacy.pdf",
+
+    # vivaldi_setting_atb
+    "MainSettingAssets.xcassets/vivaldi_setting_atb.imageset/Contents.json",
+    "MainSettingAssets.xcassets/vivaldi_setting_atb.imageset/vivaldi_setting_atb.pdf",
+
+    # vivaldi_setting_languages
+    "MainSettingAssets.xcassets/vivaldi_setting_languages.imageset/Contents.json",
+    "MainSettingAssets.xcassets/vivaldi_setting_languages.imageset/vivaldi_setting_languages.pdf",
+
+    # vivaldi_setting_contents
+    "MainSettingAssets.xcassets/vivaldi_setting_contents.imageset/Contents.json",
+    "MainSettingAssets.xcassets/vivaldi_setting_contents.imageset/vivaldi_setting_contents.pdf",
+
+    # vivaldi_setting_share_feedback
+    "MainSettingAssets.xcassets/vivaldi_setting_share_feedback.imageset/Contents.json",
+    "MainSettingAssets.xcassets/vivaldi_setting_share_feedback.imageset/vivaldi_setting_share_feedback.pdf",
+    "MainSettingAssets.xcassets/vivaldi_setting_share_feedback.imageset/vivaldi_setting_share_feedback_dark.pdf",
+
+    # vivaldi_setting_version
+    "MainSettingAssets.xcassets/vivaldi_setting_version.imageset/Contents.json",
+    "MainSettingAssets.xcassets/vivaldi_setting_version.imageset/vivaldi_setting_version.pdf",
+  ]
+}
+
+# Miscellaneous Assets
+bundle_data_xcassets("misc_assets") {
+  catalog = "MiscAssets.xcassets"
+  sources = [
+    # vivaldi_icon
+    "MiscAssets.xcassets/vivaldi_icon.imageset/Contents.json",
+    "MiscAssets.xcassets/vivaldi_icon.imageset/vivaldi_icon.pdf",
+
+    # vivaldi_passwords_autofill_banner
+    "MiscAssets.xcassets/vivaldi_passwords_autofill_banner.imageset/Contents.json",
+    "MiscAssets.xcassets/vivaldi_passwords_autofill_banner.imageset/vivaldi_passwords_autofill_banner@2x.png",
+    "MiscAssets.xcassets/vivaldi_passwords_autofill_banner.imageset/vivaldi_passwords_autofill_banner@3x.png",
+
+    # vivaldi_passwords_manager_empty
+    "MiscAssets.xcassets/vivaldi_passwords_manager_empty.imageset/Contents.json",
+    "MiscAssets.xcassets/vivaldi_passwords_manager_empty.imageset/vivaldi_passwords_manager_empty.pdf",
+    "MiscAssets.xcassets/vivaldi_passwords_manager_empty.imageset/vivaldi_passwords_manager_empty_dark.pdf",
+  ]
+}

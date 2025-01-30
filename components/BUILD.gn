@@ -1,0 +1,115 @@
+
+if (is_android) {
+  import("//build/config/clang/clang.gni")
+  import("//vivaldi/gn/command_action.gni")
+}
+
+source_set("adverse_adblocking") {
+  sources = [
+    "adverse_adblocking/adverse_ad_filter_list.cc",
+    "adverse_adblocking/adverse_ad_filter_list.h",
+    "adverse_adblocking/vivaldi_subresource_filter_throttle.cc",
+    "adverse_adblocking/vivaldi_subresource_filter_throttle.h",
+    "adverse_adblocking/vivaldi_subresource_filter_throttle_manager.cc",
+    "adverse_adblocking/vivaldi_subresource_filter_throttle_manager.h",
+    "adverse_adblocking/adverse_ad_filter_list_factory.h",
+  ]
+  deps = [
+    "//build:branding_buildflags",
+    "//components/prefs",
+    "//components/keyed_service/content",
+    "//components/safe_browsing/core/browser/db:v4_protocol_manager_util",
+    "//components/subresource_filter/core/browser",
+    "//components/subresource_filter/core/common",
+    "//components/subresource_filter/content/browser",
+    "//content/public/browser",
+    "//extensions/buildflags",
+    "//vivaldi/prefs:prefs_files_generated",
+  ]
+}
+
+source_set("panel_utils") {
+    sources = [
+      "//vivaldi/components/extensions/vivaldi_panel_utils.cc",
+      "//vivaldi/components/extensions/vivaldi_panel_utils.h",
+    ]
+    deps = [
+      "//content/public/browser",
+    ]
+}
+
+source_set("panel") {
+    sources = [
+      "//vivaldi/components/panel/panel_id.cc",
+      "//vivaldi/components/panel/panel_id.h",
+    ]
+    deps = [
+      "//base:base",
+    ]
+}
+
+if (is_android) {
+  system_command("prep_search_engines_types") {
+    source_file = "//components/search_engines/search_engine_type.h"
+    output_file = "$root_gen_dir/vivaldi/search_engines_types/search_engine_type.h"
+
+    inputs = [
+      source_file,
+      "//vivaldi/components/search_engines/vivaldi_search_engine_type.inc",
+    ]
+
+    outputs = [ output_file ]
+
+    command = rebase_path("$clang_base_path/bin/clang-cl")
+
+    args = [
+      "/P",
+      "/C",
+      "/EP",
+      "/Fi"+rebase_path(output_file),
+      "/I../..",
+      "/I../../chromium",
+      rebase_path(source_file)
+    ]
+  }
+}
+
+action("search_engines_inc") {
+  script = "//vivaldi/scripts/xxd.py"
+  engines_json = "//vivaldi/components/search_engines/search_engines.json"
+  engines_inc = "$root_gen_dir/components/search_engines/search_engines_default.inc"
+
+  inputs = [ engines_json ]
+  outputs = [ engines_inc ]
+  args = [
+    "-n", "kDefaultSearchEnginesJson",
+    rebase_path(engines_json, root_build_dir),
+    rebase_path(engines_inc, root_build_dir),
+  ]
+}
+
+action("search_engines_prompt_inc") {
+  script = "//vivaldi/scripts/xxd.py"
+  prompt_json = "//vivaldi/components/search_engines/search_engines_prompt.json"
+  prompt_inc = "$root_gen_dir/components/search_engines/search_engines_prompt_default.inc"
+
+  inputs = [ prompt_json ]
+  outputs = [ prompt_inc ]
+  args = [
+    "-n", "kDefaultSearchEnginesPromptJson",
+    rebase_path(prompt_json, root_build_dir),
+    rebase_path(prompt_inc, root_build_dir),
+  ]
+}
+
+source_set("user_agent") {
+    sources = [
+      "//vivaldi/components/user_agent/vivaldi_user_agent.cc",
+      "//vivaldi/components/user_agent/vivaldi_user_agent.h",
+      "//vivaldi/components/user_agent/vivaldi_user_agent_white_list.inc",
+    ]
+    deps = [
+      "//base:base",
+      "//components/google/core/common",
+    ]
+}

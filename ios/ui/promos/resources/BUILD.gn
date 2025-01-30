@@ -1,0 +1,41 @@
+# Copyright (c) 2023 Vivaldi Technologies AS. All rights reserved
+
+import("//build/config/ios/rules.gni")
+
+bundle_data_xcassets("assets") {
+  catalog = "Assets.xcassets"
+  sources = [
+    # vivaldi_promo_build_for_ios
+    "Assets.xcassets/vivaldi_promo_build_for_ios.imageset/Contents.json",
+    "Assets.xcassets/vivaldi_promo_build_for_ios.imageset/vivaldi_promo_build_for_ios.pdf",
+    "Assets.xcassets/vivaldi_promo_build_for_ios.imageset/vivaldi_promo_build_for_ios_dark.pdf",
+
+    # vivaldi_promo_build_for_ipad
+    "Assets.xcassets/vivaldi_promo_build_for_ipad.imageset/Contents.json",
+    "Assets.xcassets/vivaldi_promo_build_for_ipad.imageset/vivaldi_promo_build_for_ipad.pdf",
+    "Assets.xcassets/vivaldi_promo_build_for_ipad.imageset/vivaldi_promo_build_for_ipad_dark.pdf",
+
+    # vivaldi_promo_switch_to_vivaldi
+    "Assets.xcassets/vivaldi_promo_switch_to_vivaldi.imageset/Contents.json",
+    "Assets.xcassets/vivaldi_promo_switch_to_vivaldi.imageset/vivaldi_promo_switch_to_vivaldi.pdf",
+    "Assets.xcassets/vivaldi_promo_switch_to_vivaldi.imageset/vivaldi_promo_switch_to_vivaldi_dark.pdf",
+
+    # vivaldi_promo_default_browser_non_modal
+    "Assets.xcassets/vivaldi_promo_default_browser_non_modal.imageset/Contents.json",
+    "Assets.xcassets/vivaldi_promo_default_browser_non_modal.imageset/vivaldi_promo_default_browser_non_modal.pdf",
+
+    # vivaldi_promo_password_suggestions
+    "Assets.xcassets/vivaldi_promo_password_suggestions.imageset/Contents.json",
+    "Assets.xcassets/vivaldi_promo_password_suggestions.imageset/vivaldi_promo_password_suggestions.pdf",
+
+    # vivaldi_promo_stay_safe
+    "Assets.xcassets/vivaldi_promo_stay_safe.imageset/Contents.json",
+    "Assets.xcassets/vivaldi_promo_stay_safe.imageset/vivaldi_promo_stay_safe.pdf",
+    "Assets.xcassets/vivaldi_promo_stay_safe.imageset/vivaldi_promo_stay_safe_dark.pdf",
+
+    # vivaldi_promo_all_yout_tabs
+    "Assets.xcassets/vivaldi_promo_all_yout_tabs.imageset/Contents.json",
+    "Assets.xcassets/vivaldi_promo_all_yout_tabs.imageset/vivaldi_promo_all_yout_tabs.pdf",
+    "Assets.xcassets/vivaldi_promo_all_yout_tabs.imageset/vivaldi_promo_all_yout_tabs_dark.pdf",
+  ]
+}

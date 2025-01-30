@@ -1,0 +1,216 @@
+# Copyright (c) 2022 Vivaldi Technologies AS. All rights reserved
+
+import("//build/config/ios/ios_sdk.gni")
+import("//ios/build/chrome_build.gni")
+
+update_template_instance("//ios/chrome/app:chrome") {
+  deps += [
+    "//vivaldi/sync:browser",
+    "//vivaldi/ios/ui/notes:notes",
+    "//vivaldi/vivapp:ios_vivaldi_resources",
+    "//vivaldi/ios/ui/feedback_prompt:vivaldi_feedback_prompt",
+  ]
+}
+
+update_template_instance("//ios/chrome/app:info_plist") {
+  args += [
+    "--vivaldi_plist=1",
+  ]
+}
+
+update_target("//ios/chrome/browser/ui/toolbar:toolbar_ui") {
+  deps += [
+    "//vivaldi/ios/ui/toolbar:vivaldi_toolbar",
+    "//vivaldi/ios/ui/settings/appearance:vivaldi_appearance_settings"
+  ]
+}
+
+update_target("//ios/chrome/browser/ui/popup_menu/overflow_menu:overflow_menu") {
+  deps += [
+    "//vivaldi/ios/ui/vivaldi_overflow_menu:vivaldi_overflow_menu",
+  ]
+}
+
+update_target("//ios/chrome/browser/ui/tab_switcher/tab_grid:tab_grid_ui_constants") {
+  deps += [
+    "//vivaldi/ios/ui/tab_switcher/tab_grid/resources",
+  ]
+}
+
+update_template_instance("//ios/chrome/widget_kit_extension:widget_kit_extension_swift") {
+  deps += [
+    "//vivaldi/ios/chrome/widget_kit_extension/resources",
+  ]
+}
+
+update_template_instance("//ios/chrome/credential_provider_extension/ui:ui") {
+  deps += [
+    "//vivaldi/ios/ui/widget/resources"
+  ]
+}
+
+update_template_instance("//ios/chrome/open_extension:open") {
+  deps += [
+    "//vivaldi/ios/app/resources"
+  ]
+}
+
+update_target("//ios/chrome/browser/ntp/ui_bundled:coordinator") {
+  deps += [
+    "//vivaldi/ios/ui/ntp:vivaldi_ntp"
+  ]
+}
+
+update_target("//ios/chrome/browser/tabs/ui_bundled:ui_bundled") {
+  deps += [
+    "//vivaldi/ios/chrome/browser/ui/tab_strip/resources:vivaldi_tab_strip_assets"
+  ]
+}
+
+update_target("//ios/chrome/browser/bookmarks/ui_bundled/home:home") {
+  deps += [
+    "//vivaldi/ios/ui/bookmarks_editor:vivaldi_bookmarks_editor"
+  ]
+}
+
+update_target("//ios/chrome/browser/badges/ui_bundled:ui_bundled") {
+  deps += [
+    "//vivaldi/ios/chrome/browser/ui/badges/resources:incognito_badge_assets",
+  ]
+}
+
+update_target("//ios/chrome/browser/location_bar/ui_bundled:ui_bundled") {
+  deps += [
+    "//vivaldi/ios/chrome/browser/ui/location_bar:vivaldi_location_bar",
+    "//vivaldi/ios/ui/ad_tracker_blocker:vivaldi_ad_tracker_blocker",
+  ]
+}
+
+update_target("//ios/chrome/browser/ui/settings:settings") {
+  deps += [
+    "//vivaldi/ios/ui/settings/addressbar:vivaldi_addressbar_settings",
+    "//vivaldi/ios/ui/settings/appearance:vivaldi_appearance_settings",
+    "//vivaldi/ios/ui/settings/custom_app_icon:vivaldi_custom_app_icon",
+    "//vivaldi/ios/ui/settings/general:vivaldi_general_settings",
+    "//vivaldi/ios/ui/settings/pagezoom:vivaldi_pagezoom_settings",
+    "//vivaldi/ios/ui/settings/pagezoom/dialog:vivaldi_pagezoom_dialog",
+    "//vivaldi/ios/ui/settings/resources:main_setting_assets",
+    "//vivaldi/ios/ui/settings/resources:misc_assets",
+    "//vivaldi/ios/ui/settings/search_engine:vivaldi_search_engine_settings",
+    "//vivaldi/ios/ui/settings/start_page:start_page_settings",
+    "//vivaldi/ios/ui/settings/sync:vivaldi_sync_settings",
+    "//vivaldi/ios/ui/settings/tabs:vivaldi_tab_settings",
+  ]
+}
+
+update_target("//ios/chrome/common/ui/colors:colors") {
+  deps += [
+    "//vivaldi/ios/ui/vivaldi_colors:vivaldi_colors",
+  ]
+}
+
+
+update_target("//ios/chrome/browser/shared/model/browser_state:browser_state") {
+  deps += [
+    "//vivaldi/browser:default_bookmarks",
+    "//vivaldi/ios/ad_blocker:ad_blocker",
+  ]
+}
+
+update_target("//ios/chrome/browser/web/model:web_internal") {
+  deps += [
+    "//vivaldi/browser:stats_reporter",
+    "//vivaldi/ios/website_dark_mode:website_dark_mode",
+    "//vivaldi/ios/ui/settings/appearance:vivaldi_appearance_settings"
+  ]
+}
+
+update_template_instance("//ios/components:ios_components_unittests") {
+  deps += [
+    "//vivaldi/ios/ad_blocker:unit_tests"
+  ]
+}
+
+update_target("//ios/chrome/browser/default_promo/ui_bundled:coordinator") {
+  deps += [
+    "//vivaldi/ios/ui/promos:vivaldi_promo",
+  ]
+}
+
+update_target("//ios/chrome/browser/first_run/ui_bundled:ui_bundled") {
+  deps += [
+    "//vivaldi/ios/in_app_rating:vivaldi_in_app_rating_manager_swift",
+    "//vivaldi/ios/ui/common:vivaldi_common",
+    "//vivaldi/ios/ui/context_menu:context_menu",
+    "//vivaldi/ios/ui/custom_views:custom_views",
+    "//vivaldi/ios/ui/helpers:helpers",
+    "//vivaldi/ios/ui/onboarding:vivaldi_onboarding",
+  ]
+}
+
+update_target("//ios/chrome/app/resources:settings_resources") {
+  public_deps -= [ ":settings_resources_experimental_plist" ]
+}
+
+update_target("//ios/chrome/browser/ui/reading_list:reading_list_ui") {
+  deps += [
+    "//vivaldi/ios/panel/resources:assets",
+  ]
+}
+
+update_target("//ios/chrome/browser/autofill/ui_bundled/manual_fill:manual_fill_ui") {
+  deps += [
+    "//vivaldi//ios/ui/autofill/resources:vivaldi_autofill_assets",
+  ]
+}
+
+update_target("//ios/chrome/browser/ui/tab_switcher/tab_grid/grid:grid_ui") {
+    deps += [
+    "//vivaldi/ios/chrome/browser/ui/tab_switcher/tab_grid/inactive_tabs/resources:assets",
+  ]
+}
+
+update_target("//ios/chrome/browser/ui/browser_container:browser_container") {
+  deps += [
+    "//vivaldi/ios/ui/copy_to_note",
+  ]
+}
+
+update_template_instance("//ios/web/common:user_agent") {
+  deps += [
+    "//vivaldi/components:user_agent",
+  ]
+}
+
+update_template_instance("//ios/web/navigation:navigation") {
+  deps += [
+    "//vivaldi/components:user_agent",
+  ]
+}
+
+if (ios_enable_search_widget_extension) {
+  update_template_instance("//ios/chrome/search_widget_extension/appex:appex") {
+    deps += [
+      "//vivaldi/ios/ui/context_menu/resources:vivaldi_context_menu_assets",
+    ]
+  }
+}
+
+update_target("//components/sessions:shared") {
+  deps += [
+    "//vivaldi/components:panel",
+  ]
+}
+
+update_target("//ios/chrome/browser/translate/model:model") {
+  deps += [
+    "//vivaldi/ios/translate:ios_translate",
+  ]
+}
+
+update_target("//ios/chrome/browser/ui/partial_translate:partial_translate") {
+  deps += [
+    "//vivaldi/ios/ui/translate:vivaldi_translate",
+    "//vivaldi/ios/ui/translate:vivaldi_translate_swift",
+  ]
+}

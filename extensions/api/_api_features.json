@@ -1,0 +1,232 @@
+// Copyright (c) 2015-2018 Vivaldi Technologies AS. All rights reserved
+
+// This features file defines extension APIs implemented under
+// vivaldi/vivaldi_extensions.
+// See extensions/common/features/* to understand this file, in particular
+// feature.h, simple_feature.h, and base_feature_provider.h.
+//
+// Note that specifying "web_page", "blessed_web_page", or "all" as a context
+// type will require manually updating chrome/renderer/resources/dispatcher.cc.
+
+// To add a new whitelisted ID, SHA-1 it and force it to uppercase. In Bash:
+//
+// $ echo -n "aaaabbbbccccddddeeeeffffgggghhhh" | \
+// sha1sum | tr '[:lower:]' '[:upper:]'
+// 9A0417016F345C934A1A88F55CA17C05014EEEBA  -
+//
+
+{
+  "accessKeys": {
+    "vivaldi": true,
+    "dependencies": [ "permission:accessKeys" ],
+    "contexts": [ "privileged_extension" ]
+  },
+  "autoUpdate": {
+    "vivaldi": true,
+    "dependencies": [ "permission:autoUpdate" ],
+    "contexts": [ "privileged_extension" ]
+  },
+  "bookmarkContextMenu": {
+    "vivaldi": true,
+    "dependencies": [ "permission:bookmarkContextMenu" ],
+    "contexts": [ "privileged_extension" ]
+  },
+  "bookmarksPrivate": {
+    "vivaldi": true,
+    "dependencies": [ "permission:bookmarksPrivate" ],
+    "contexts": [ "privileged_extension" ]
+  },
+  "calendar": {
+    "vivaldi": true,
+    "dependencies": [ "permission:calendar" ],
+    "contexts": [ "privileged_extension" ]
+  },
+  "contextMenu": {
+    "vivaldi": true,
+    "dependencies": [ "permission:contextMenu" ],
+    "contexts": [ "privileged_extension" ]
+  },
+  "contentBlocking": {
+    "vivaldi": true,
+    "dependencies": [ "permission:contentBlocking" ],
+    "contexts": [ "privileged_extension" ]
+  },
+  "contacts": {
+    "vivaldi": true,
+    "dependencies": [ "permission:contacts" ],
+    "contexts": [ "privileged_extension" ]
+  },
+  "devtoolsPrivate": {
+    "vivaldi": true,
+    "dependencies": [ "permission:devtoolsPrivate" ],
+    "contexts": [ "privileged_extension" ]
+  },
+  "editcommand": {
+    "vivaldi": true,
+    "dependencies": [ "permission:editcommand" ],
+    "contexts": [ "privileged_extension" ]
+  },
+  "extensionActionUtils": {
+    "vivaldi": true,
+    "dependencies": [ "permission:extensionActionUtils" ],
+    "contexts": [ "privileged_extension" ]
+  },
+  "historyPrivate": {
+    "vivaldi": true,
+    "dependencies": [ "permission:historyPrivate" ],
+    "contexts": [ "privileged_extension" ]
+  },
+  "importData": {
+    "vivaldi": true,
+    "dependencies": [ "permission:importData" ],
+    "contexts": [ "privileged_extension" ]
+  },
+  "infobars": {
+    "vivaldi": true,
+    "dependencies": [ "permission:infobars" ],
+    "contexts": [ "privileged_extension" ]
+  },
+  "mailPrivate": {
+    "vivaldi": true,
+    "dependencies": [ "permission:mailPrivate" ],
+    "contexts": [ "privileged_extension" ]
+  },
+   "menuContent": {
+    "vivaldi": true,
+    "dependencies": [ "permission:menuContent" ],
+    "contexts": [ "privileged_extension" ]
+  },
+  "menubar": {
+    "vivaldi": true,
+    "dependencies": [ "permission:menubar" ],
+    "contexts": [ "privileged_extension" ]
+  },
+  "menubarMenu": {
+    "vivaldi": true,
+    "dependencies": [ "permission:menubarMenu" ],
+    "contexts": [ "privileged_extension" ]
+  },
+  "notes": {
+    "vivaldi": true,
+    "dependencies": [ "permission:notes" ],
+    "contexts": [ "privileged_extension" ]
+  },
+  "omniboxPrivate": {
+    "vivaldi": true,
+    "dependencies": [ "permission:omniboxPrivate" ],
+    "contexts": [ "privileged_extension" ]
+  },
+  "pageActions": {
+    "vivaldi": true,
+    "dependencies": [ "permission:pageActions" ],
+    "contexts": [ "privileged_extension" ]
+  },
+  "pipPrivate": {
+    "vivaldi": true,
+    "dependencies": [ "permission:pipPrivate" ],
+    "extension_types": ["extension"],
+    "contexts": [ "privileged_extension", "content_script", "unprivileged_extension" ]
+  },
+  "prefs": {
+    "vivaldi": true,
+    "dependencies": [ "permission:prefs" ],
+    "contexts": [ "privileged_extension" ]
+  },
+  "readingListPrivate": {
+    "vivaldi": true,
+    "dependencies": [ "permission:readingListPrivate" ],
+    "contexts": [ "privileged_extension" ]
+  },
+  "runtimePrivate": {
+    "vivaldi": true,
+    "dependencies": [ "permission:runtimePrivate" ],
+    "contexts": [ "privileged_extension" ]
+  },
+  "savedpasswords": {
+    "vivaldi": true,
+    "dependencies": [ "permission:savedpasswords" ],
+    "contexts": [ "privileged_extension" ]
+  },
+  "searchEngines": {
+    "vivaldi": true,
+    "dependencies": [ "permission:searchEngines" ],
+    "contexts": [ "privileged_extension" ]
+  },
+  "sessionsPrivate": {
+    "vivaldi": true,
+    "dependencies": [ "permission:sessionsPrivate" ],
+    "contexts": [ "privileged_extension" ]
+  },
+  "settings": {
+    "vivaldi": true,
+    "dependencies": [ "permission:settings" ],
+    "contexts": [ "privileged_extension" ]
+  },
+  "sync": {
+    "vivaldi": true,
+    "dependencies": [ "permission:sync" ],
+    "contexts": [ "privileged_extension" ]
+  },
+  "themePrivate": {
+    "vivaldi": true,
+    "dependencies": [ "permission:themePrivate" ],
+    "extension_types": [ "platform_app", "extension" ],
+    "contexts": [ "privileged_extension", "content_script", "privileged_extension" ]
+  },
+  "tabsPrivate": {
+    "vivaldi": true,
+    "dependencies": [ "permission:tabsPrivate" ],
+    "contexts": [ "privileged_extension" ]
+  },
+  "thumbnails": [{
+    "vivaldi": true,
+    "dependencies": [ "permission:thumbnails" ],
+    "contexts": [ "privileged_extension" ]
+  }, {
+    "channel": "stable",
+    "contexts": ["webui"],
+    "matches": [
+      "chrome://game/*"
+    ]
+  }],
+   "translateHistory": {
+    "vivaldi": true,
+    "dependencies": [ "permission:translateHistory" ],
+    "contexts": [ "privileged_extension" ]
+  },
+  "utilities": {
+    "vivaldi": true,
+    "dependencies": [ "permission:utilities" ],
+    "contexts": [ "privileged_extension" ]
+  },
+  "vivaldiAccount": {
+    "vivaldi": true,
+    "dependencies": [ "permission:vivaldiAccount" ],
+    "contexts": [ "privileged_extension" ]
+  },
+  "webViewPrivate": [{
+    "internal": true,
+    "dependencies": ["permission:webview"],
+    "contexts": ["privileged_extension"]
+  }, {
+    "internal": true,
+    "channel": "stable",
+    "contexts": ["webui"],
+    "matches": [
+      "chrome://chrome-signin/*",
+      "chrome://media-router/*",
+      "chrome://oobe/*",
+      "chrome://discards/*"
+    ]
+  }],
+  "windowPrivate": {
+    "vivaldi": true,
+    "dependencies": [ "permission:windowPrivate" ],
+    "contexts": [ "privileged_extension" ]
+  },
+  "zoom": {
+    "vivaldi": true,
+    "dependencies": [ "permission:zoom" ],
+    "contexts": [ "privileged_extension" ]
+  }
+}

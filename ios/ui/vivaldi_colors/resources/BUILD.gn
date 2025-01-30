@@ -1,0 +1,59 @@
+# Copyright 2022 Vivaldi Technologies. All rights reserved.
+
+import("//build/config/ios/rules.gni")
+
+bundle_data_xcassets("vivaldi_colors") {
+  catalog = "VivaldiColors.xcassets"
+  sources = [
+    # viv_system_red
+    "VivaldiColors.xcassets/viv_system_red.colorset/Contents.json",
+
+    # viv_system_orange
+    "VivaldiColors.xcassets/viv_system_orange.colorset/Contents.json",
+
+    # viv_system_yellow
+    "VivaldiColors.xcassets/viv_system_yellow.colorset/Contents.json",
+
+    # viv_system_green
+    "VivaldiColors.xcassets/viv_system_green.colorset/Contents.json",
+
+    # viv_system_teal
+    "VivaldiColors.xcassets/viv_system_teal.colorset/Contents.json",
+
+    # viv_system_blue
+    "VivaldiColors.xcassets/viv_system_blue.colorset/Contents.json",
+
+    # viv_system_indigo
+    "VivaldiColors.xcassets/viv_system_indigo.colorset/Contents.json",
+
+    # viv_system_purple
+    "VivaldiColors.xcassets/viv_system_purple.colorset/Contents.json",
+
+    # viv_system_pink
+    "VivaldiColors.xcassets/viv_system_pink.colorset/Contents.json",
+
+    # viv_system_gray
+    "VivaldiColors.xcassets/viv_system_gray.colorset/Contents.json",
+
+    # viv_system_gray_02
+    "VivaldiColors.xcassets/viv_system_gray_02.colorset/Contents.json",
+
+    # viv_system_gray_03
+    "VivaldiColors.xcassets/viv_system_gray_03.colorset/Contents.json",
+
+    # viv_system_gray_04
+    "VivaldiColors.xcassets/viv_system_gray_04.colorset/Contents.json",
+
+    # viv_system_gray_05
+    "VivaldiColors.xcassets/viv_system_gray_05.colorset/Contents.json",
+
+    # viv_system_gray_06
+    "VivaldiColors.xcassets/viv_system_gray_06.colorset/Contents.json",
+
+    # viv_system_gray_07
+    "VivaldiColors.xcassets/viv_system_gray_07.colorset/Contents.json",
+
+    # viv_top_toolbar_tint_color
+    "VivaldiColors.xcassets/viv_top_toolbar_tint_color.colorset/Contents.json",
+  ]
+}

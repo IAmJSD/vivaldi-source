@@ -1,0 +1,43 @@
+# Copyright 2022-2023 Vivaldi Technologies. All rights reserved.
+
+source_set("vivaldi_sync_settings") {
+  sources = [
+    "vivaldi_create_account_ui_helper.h",
+    "vivaldi_create_account_ui_helper.mm",
+    "vivaldi_sync_activate_account_view_controller.h",
+    "vivaldi_sync_activate_account_view_controller.mm",
+    "vivaldi_sync_coordinator.h",
+    "vivaldi_sync_coordinator.mm",
+    "vivaldi_sync_create_account_password_view_controller.h",
+    "vivaldi_sync_create_account_password_view_controller.mm",
+    "vivaldi_sync_create_account_user_view_controller.h",
+    "vivaldi_sync_create_account_user_view_controller.mm",
+    "vivaldi_sync_create_encryption_password_view_controller.h",
+    "vivaldi_sync_create_encryption_password_view_controller.mm",
+    "vivaldi_sync_encryption_password_view_controller.h",
+    "vivaldi_sync_encryption_password_view_controller.mm",
+    "vivaldi_sync_login_view_controller.h",
+    "vivaldi_sync_login_view_controller.mm",
+    "vivaldi_sync_mediator.h",
+    "vivaldi_sync_mediator.mm",
+    "vivaldi_sync_settings_command_handler.h",
+    "vivaldi_sync_settings_constants.h",
+    "vivaldi_sync_settings_constants.mm",
+    "vivaldi_sync_settings_consumer.h",
+    "vivaldi_sync_settings_view_controller_model_delegate.h",
+    "vivaldi_sync_settings_view_controller.h",
+    "vivaldi_sync_settings_view_controller.mm",
+    "settings_root_table_view_controller+vivaldi.h",
+    "settings_root_table_view_controller+vivaldi.mm"
+  ]
+
+  deps = [
+    "//base",
+    "//net",
+    "//vivaldi/ios/ui/common:vivaldi_common",
+    "//vivaldi/ios/ui/modal_page:vivaldi_modal_page",
+    "cells:vivaldi_sync_settings_table_view_cells",
+    "manager:sync_manager",
+    "resources:sync_settings_assets",
+  ]
+}

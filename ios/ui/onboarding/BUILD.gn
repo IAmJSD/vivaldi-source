@@ -1,0 +1,71 @@
+# Copyright 2023 Vivaldi Technologies. All rights reserved.
+
+import("//build/config/apple/swift_source_set.gni")
+
+source_set("vivaldi_onboarding") {
+  sources = [
+    "vivaldi_onboarding_agreement_view.h",
+    "vivaldi_onboarding_agreement_view.mm",
+    "vivaldi_onboarding_background_view.h",
+    "vivaldi_onboarding_background_view.mm",
+    "vivaldi_onboarding_promo_view.h",
+    "vivaldi_onboarding_promo_view.mm",
+  ]
+
+  deps = [
+    ":vivaldi_onboarding_swift",
+    "//base",
+    "//ios/chrome/common/ui/util",
+    "//ui/base",
+    "resources:assets",
+  ]
+
+  frameworks = [
+    "AVFoundation.framework",
+    "CoreMedia.framework",
+    "Foundation.framework",
+    "UIKit.framework",
+  ]
+}
+
+swift_source_set("vivaldi_onboarding_swift") {
+  bridge_header = "vivaldi_onboarding_swift_bridge.h"
+  sources = [
+    "vivaldi_onboarding_actions_bridge.swift",
+    "vivaldi_onboarding_adblocker_option_view.swift",
+    "vivaldi_onboarding_background_view_pure.swift",
+    "vivaldi_onboarding_constants.swift",
+    "vivaldi_onboarding_data_model.swift",
+    "vivaldi_onboarding_default_browser_view.swift",
+    "vivaldi_onboarding_features_view.swift",
+    "vivaldi_onboarding_omnibox_position_view.swift",
+    "vivaldi_onboarding_promo_view_pure.swift",
+    "vivaldi_onboarding_shadow_modifier.swift",
+    "vivaldi_onboarding_start_view.swift",
+    "vivaldi_onboarding_tab_style_view.swift",
+    "vivaldi_onboarding_view_provider.swift",
+    "vivaldi_onboarding_view.swift",
+  ]
+
+  deps = [
+    "//base",
+    "//ios/chrome/app/strings",
+    "//ui/base",
+    "//url",
+    "//vivaldi/ios/ui/ad_tracker_blocker:vivaldi_ad_tracker_blocker",
+    "//vivaldi/ios/ui/common:vivaldi_common",
+    "//vivaldi/ios/ui/helpers:helpers_swift",
+    "//vivaldi/ios/ui/helpers:helpers",
+    "//vivaldi/ios/ui/settings/sync:vivaldi_sync_settings",
+    "//vivaldi/ios/ui/settings/tabs:vivaldi_tab_settings",
+    "//vivaldi/ios/ui/site_tracker_prefs:site_tracker_prefs_view_swift",
+    "//vivaldi/ios/ui/site_tracker_prefs",
+  ]
+
+  frameworks = [
+    "Combine.framework",
+    "Foundation.framework",
+    "SwiftUI.framework",
+    "UIKit.framework",
+  ]
+}
